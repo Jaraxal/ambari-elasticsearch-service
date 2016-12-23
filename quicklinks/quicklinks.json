@@ -1,0 +1,28 @@
+{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "protocol": {
+      "type":"http",
+      "checks":[
+      ]
+    },
+    "links": [
+      {
+        "name": "elasticsearch_ui",
+        "label": "Elasticsearch UI",
+        "requires_user_name": "false",
+        "component_name": "ELASTICSEARCH",
+        "url":"%@://%@:%@",
+        "port":{
+          "http_property": "http_port",
+          "http_default_port": "9200",
+          "https_property": "http_port",
+          "https_default_port": "9200",
+          "regex": "\\w*:(\\d+)",
+          "site": "elastic-config"
+        }
+      } 
+    ]
+  }
+}

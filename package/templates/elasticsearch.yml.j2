@@ -1,0 +1,64 @@
+# ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please see the documentation for further information on configuration options:
+# <http://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html>
+
+# ---------------------------------- Cluster -----------------------------------
+# Use a descriptive name for your cluster:
+cluster.name: {{cluster_name}}
+
+# ------------------------------------ Node ------------------------------------
+# Use a descriptive name for the node:
+node.name: {{hostname}}
+
+# Add custom attributes to the node:
+node.attr.rack: {{node_attr_rack}}
+
+node.master: true
+node.data: true
+node.ingest: true
+
+# ----------------------------------- Paths ------------------------------------
+# Path to directory where to store the data (separate multiple locations by comma):
+path.data: {{path_data}}
+
+# Path to log files:
+path.logs: {{path_logs}}
+
+# ----------------------------------- Memory -----------------------------------
+# Lock the memory on startup:# Elasticsearch expetcs that boolean values to be true or false and will generate an error if you use True or False.
+bootstrap.memory_lock: {{bootstrap_memory_lock}}
+
+# ---------------------------------- Network -----------------------------------
+# Set the bind address to a specific IP (IPv4 or IPv6):
+network.host: {{hostname}}
+
+# Set a custom port for HTTP:
+http.port: {{http_port}}
+
+# --------------------------------- Discovery ----------------------------------
+# Pass an initial list of hosts to perform discovery when new node is started:
+# The default list of hosts is ["127.0.0.1", "[::1]"]
+discovery.zen.ping.unicast.hosts: {{discovery_zen_ping_unicast_hosts}}
+
+# Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
+discovery.zen.minimum_master_nodes: {{discovery_zen_minimum_master_nodes}}
+
+# ---------------------------------- Gateway -----------------------------------
+# Block initial recovery after a full cluster restart until N nodes are started:
+gateway.recover_after_nodes: {{gateway_recover_after_nodes}}
+
+# ---------------------------------- Various -----------------------------------
+# Disable starting multiple nodes on a single system:
+node.max_local_storage_nodes: {{node_max_local_storage_nodes}}
+
+# Require explicit names when deleting indices:
+# Lock the memory on startup:# Elasticsearch expetcs that boolean values to be true or false and will generate an error if you use True or False.
+action.destructive_requires_name: {{action_destructive_requires_name}}

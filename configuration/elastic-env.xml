@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+  <property>
+    <name>elastic_user</name>
+    <value>elasticsearch</value>
+    <property-type>USER</property-type>
+    <description>Elasticsearch user</description>
+  </property>
+
+  <property>
+    <name>elastic_group</name>
+    <value>elasticsearch</value>
+    <property-type>GROUP</property-type>
+    <description>Elasticsearch group</description>
+  </property>
+
+  <property>
+    <name>elastic_base_dir</name>
+    <value>/opt/elasticsearch</value>
+    <description>Elasticsearch base directory</description>
+  </property>
+
+  <property>
+    <name>elastic_log_dir</name>
+    <value>/opt/elasticsearch/logs</value>
+    <description>Elasticsearch log directory</description>
+  </property>
+
+  <property>
+    <name>elastic_conf_dir</name>
+    <value>/opt/elasticsearch/config</value>
+    <description>Elasticsearch configuration directory</description>
+  </property>
+
+  <property>
+    <name>elastic_pid_dir</name>
+    <value>/var/run/elasticsearch</value>
+    <description>Elasticsearch PID directory</description>
+  </property>
+
+</configuration>
