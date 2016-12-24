@@ -1,6 +1,6 @@
 # Ambari Elasticsearch Service
 
-The Ambari Elasticsearch Service is a custom service for Ambari that allows you to install and manage Elasticsearch via Ambari.  This service is provided as a community project and is not supported by Hortonworks.  Futhermore, this service is intended for testing and development and should not be used in a production environment.
+The Ambari Elasticsearch Service is a custom service for Ambari that allows you to install and manage Elasticsearch via Ambari.  This service is provided as a community project and is not supported by Hortonworks.  Futhermore, this service is intended for testing and development and should not be used in a production environment.  This service is for Ambari 2.4.x and Elasticsearch 5.x.
 
 ## System Requirements
 
