@@ -54,8 +54,18 @@ else:
 
 network_host = config['configurations']['elastic-config']['{network_host']
 http_port = config['configurations']['elastic-config']['http_port']
-discovery_zen_ping_unicast_hosts = config['configurations']['elastic-config']['discovery_zen_ping_unicast_hosts']
+
+discovery_zen_ping_unicast_hosts = str(config['configurations']['elastic-config']['discovery_zen_ping_unicast_hosts'])
+
+# Need to parse the comma separated hostnames to create the proper string format within the configuration file
+# Elasticsearch expects the format ["host1","host2"]
+master_node_list = discovery_zen_ping_unicast_hosts.split(',')
+discovery_zen_ping_unicast_hosts = '[' +  ','.join('"' + x + '"' for x in master_node_list) + ']'
+
 discovery_zen_minimum_master_nodes = config['configurations']['elastic-config']['discovery_zen_minimum_master_nodes']
+
+
+
 gateway_recover_after_nodes = config['configurations']['elastic-config']['gateway_recover_after_nodes']
 node_max_local_storage_nodes = config['configurations']['elastic-config']['node_max_local_storage_nodes']
 
