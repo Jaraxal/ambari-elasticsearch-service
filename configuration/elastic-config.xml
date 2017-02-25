@@ -95,5 +95,10 @@
         <value>true</value>
         <description>Require explicit names when deleting indices</description>
     </property>
-    
+
+    <property>
+        <name>xpack_security_enabled</name>
+        <value>false</value>
+        <description>Enable X-Pack security module</description>
+    </property>
 </configuration>
