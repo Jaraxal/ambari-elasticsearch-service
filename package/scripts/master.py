@@ -76,9 +76,13 @@ class Master(Script):
         cmd = format("cd {elastic_base_dir}; tar -xf elasticsearch.tar.gz --strip-components=1")
         Execute(cmd, user=params.elastic_user)
 
-        # Ensure all files owned by elasticsearch UserWarning
+        # Ensure all files owned by elasticsearch user
         cmd = format("chown -R {elastic_user}:{elastic_group} {elastic_base_dir}")
         Execute(cmd)
+
+        # Remove Elasticsearch installation file
+        cmd = format("cd {elastic_base_dir}; rm elasticsearch.tar.gz")
+        Execute(cmd, user=params.elastic_user)
 
         Execute('echo "Install complete"')
 
@@ -99,6 +103,24 @@ class Master(Script):
              owner=params.elastic_user,
              group=params.elastic_group
             )
+
+        # Install HEAD and HQ puglins - these plugins are not currently supported by ES 5.x
+        #cmd = format("{elastic_base_dir}/bin/elasticsearch-plugin install mobz/elasticserach-head")
+        #Execute(cmd)
+
+        # Attempt to remove X-Pack plugin
+        cmd = format("{elastic_base_dir}/bin/elasticsearch-plugin remove x-pack")
+        Execute(cmd)
+
+        # Install X-Pack plugin
+        cmd = format("{elastic_base_dir}/bin/elasticsearch-plugin install x-pack")
+        Execute(cmd)
+
+        # Ensure all files owned by elasticsearch user
+        cmd = format("chown -R {elastic_user}:{elastic_group} {elastic_base_dir}")
+        Execute(cmd)
+
+        Execute('echo "Configuration complete"')
 
     def stop(self, env):
         # Import properties defined in -config.xml file from the params class
@@ -151,5 +173,3 @@ class Master(Script):
 
 if __name__ == "__main__":
     Master().execute()
-
-
