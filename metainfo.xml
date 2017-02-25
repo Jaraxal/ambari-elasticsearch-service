@@ -20,7 +20,7 @@
             <name>ELASTICSEARCH</name>
             <displayName>Elasticsearch</displayName>
             <comment>Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases. As the heart of the Elastic Stack, it centrally stores your data so you can discover the expected and uncover the unexpected.</comment>
-            <version>5.1.1</version>
+            <version>5.2.0</version>
             <components>
                 <component>
                     <name>MASTER</name>
@@ -53,7 +53,7 @@
                 <fileName>quicklinks.json</fileName>
                 <default>true</default>
               </quickLinksConfiguration>
-            </quickLinksConfigurations>   
+            </quickLinksConfigurations>
         </service>
     </services>
 </metainfo>
